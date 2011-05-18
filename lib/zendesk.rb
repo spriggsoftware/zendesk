@@ -30,7 +30,13 @@ module Zendesk
     # TODO these should become attr_readers and we set @variables directly
     attr_accessor :dropbox, :login, :login_url, :js_asset_path, :js_asset_name, :css_asset_path, :css_asset_name
 
-    def set(options)
+    def check_configuration!
+      options = Rails.application.config.zendesk rescue nil
+
+      unless options.present?
+        raise ConfigurationError, "Zendesk configuration missing! Please define config.zendesk"
+      end
+
       self.token, self.hostname, self.login, self.login_url =
         options.values_at(:token, :hostname, :login, :login_url)
 

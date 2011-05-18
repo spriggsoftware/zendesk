@@ -32,7 +32,7 @@ method in the controller.
 
 Finally, in your config/application.rb:
 
-    Zendesk.set(
+    config.zendesk = {
       :token     => 'Your Zendesk token',
       :hostname  => 'example.zendesk.com',
       :login     => proc { [current_user.name, current_user.email] },
@@ -41,7 +41,7 @@ Finally, in your config/application.rb:
         :title => 'Dropbox title',
         :email => proc { current_user.email rescue nil }
       }
-    )
+    }
 
 The required options are:
 

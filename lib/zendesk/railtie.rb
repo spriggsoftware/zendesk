@@ -9,6 +9,12 @@ module Zendesk
         ActionDispatch::Routing::Mapper.instance_eval { include Zendesk::Routing }
       end
     end
+
+    initializer 'zendesk.check_configuration' do
+      ActiveSupport.on_load :after_initialize do
+        Zendesk.check_configuration!
+      end
+    end
   end
 
 end
