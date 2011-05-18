@@ -57,6 +57,8 @@ module Zendesk
     end
 
     def enabled?
+      # FIXME we should not disable this code in the
+      # test environment, rather test it appropriately
       Rails.env.production? || Rails.env.development?
     end
 
