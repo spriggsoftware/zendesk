@@ -30,11 +30,6 @@ path will simply set a notice in the flash and redirect the user to the app
 `root_url`. You can override this behaviour by implementing a `zendesk_logout`
 method in the controller.
 
-You can define these methods in any of your controllers, in this example we
-defined it in the `SessionsController`: so, in your `sessions_controller.rb`:
-
-    include Zendesk::Controller if Zendesk.enabled?
-
 Finally, in your config/application.rb:
 
     Zendesk.set(

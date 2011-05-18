@@ -15,6 +15,9 @@ module Zendesk
         get '/',     :action => :zendesk_login,  :as => base.to_sym
         get '/exit', :action => :zendesk_logout, :as => nil
       end
+
+      # Install the methods into the given controller
+      "#{ctrl.camelize}Controller".constantize.instance_eval { include Controller }
     end
   end
 
