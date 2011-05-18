@@ -16,14 +16,10 @@ begin
     gemspec.authors          = ['Marcello Barnaba']
     gemspec.email            = 'vjt@openssl.it'
     gemspec.homepage         = 'http://github.com/vjt/zendesk'
-
     gemspec.files            = %w( README.md Rakefile rails/init.rb ) + Dir['lib/**/*']
     gemspec.extra_rdoc_files = %w( README.md )
     gemspec.has_rdoc         = true
-
     gemspec.version          = Zendesk::Version
-    gemspec.date             = '2010-11-23'
-
     gemspec.require_path     = 'lib'
 
     gemspec.add_dependency('rails', '~> 3.0')
