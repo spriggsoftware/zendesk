@@ -1,5 +1,3 @@
-require 'digest/md5'
-
 require 'zendesk/controller'
 require 'zendesk/helpers'
 require 'zendesk/routing'
