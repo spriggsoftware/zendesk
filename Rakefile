@@ -1,7 +1,7 @@
 require 'rake'
 require 'rake/rdoctask'
 
-require 'lib/zendesk'
+require 'lib/zendesk/version'
 
 begin
   require 'jeweler'
