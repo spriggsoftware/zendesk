@@ -45,14 +45,10 @@ module Zendesk
                                   "and e-mail and the login route helper name" # TODO don't require all these things
       end
 
-      if options[:dropbox].nil? or options[:dropbox][:dropboxID].blank?
-        raise ConfigurationError, "DropboxID is a required param in zenbox-2.0. Please configure options[:dropbox][:dropboxID]."
-      end
-
       # Dropbox specific customizations, defaults in place
       self.dropbox = (options[:dropbox] || {}).reverse_merge(
-        :tabID => 'feedback',
-        :url   => Zendesk.hostname
+        :dropboxID => 'feedback',
+        :url       => Zendesk.hostname
       ).freeze
 
       # Path and name for css and asset required for zenbox 2.0
