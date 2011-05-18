@@ -4,12 +4,12 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{panmind-zendesk}
-  s.version = "1.0.2"
+  s.name = %q{vjt-zendesk}
+  s.version = "1.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcello Barnaba"]
-  s.date = %q{2010-11-25}
+  s.date = %q{2010-11-23}
   s.description = %q{The plugin implements the HTML generation code for the Zendesk dropbox and the necessary controller and routing code to implement remote authentication}
   s.email = %q{vjt@openssl.it}
   s.extra_rdoc_files = [
@@ -18,11 +18,10 @@ Gem::Specification.new do |s|
   s.files = [
     "README.md",
     "Rakefile",
-    "lib/panmind/zendesk.rb",
-    "lib/panmind/zendesk/railtie.rb",
-    "rails/init.rb"
+    "lib/zendesk.rb",
+    "lib/zendesk/railtie.rb"
   ]
-  s.homepage = %q{http://github.com/Panmind/zendesk}
+  s.homepage = %q{http://github.com/vjt/zendesk}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Zendesk on Rails - Dropbox and Remote Authentication}
