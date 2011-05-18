@@ -33,28 +33,15 @@ module Zendesk
     def check_configuration!
       options = Rails.application.config.zendesk rescue nil
 
-      unless options.present?
-        raise ConfigurationError, "Zendesk configuration missing! Please define config.zendesk"
-      end
+      bail "Zendesk configuration missing: please define config.zendesk" unless options.present?
 
       self.token, self.hostname, self.login, self.login_url =
         options.values_at(:token, :hostname, :login, :login_url)
 
-      unless self.token.present?
-        raise ConfigurationError, "API token is missing"
-      end
-
-      unless self.hostname.present?
-        raise ConfigurationError, "Support hostname is missing"
-      end
-
-      unless self.login.present?
-        raise ConfigurationError, "Login proc is missing"
-      end
-
-      unless self.login_url.present?
-        raise ConfigurationError, "Login URL named route is missing"
-      end
+      bail "API token is missing"             unless self.token.present?
+      bail "Support hostname is missing"      unless self.hostname.present?
+      bail "Login proc is missing"            unless self.login.present?
+      bail "Login URL named route is missing" unless self.login_url.present?
 
       # Dropbox specific customizations, defaults in place
       self.dropbox = (options[:dropbox] || {}).reverse_merge(
@@ -78,6 +65,10 @@ module Zendesk
     private
       def token=(token);       @token    = token.freeze    rescue nil end
       def hostname=(hostname); @hostname = hostname.freeze            end
+
+      def bail(message)
+        raise ConfigurationError, message
+      end
   end
 
 end
