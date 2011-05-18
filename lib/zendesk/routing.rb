@@ -12,8 +12,8 @@ module Zendesk
       end
 
       scope base.to_s, :controller => ctrl do
-        get '',     :action => :zendesk_login,  :as => base.to_sym
-        get 'exit', :action => :zendesk_logout, :as => nil
+        get '/',     :action => :zendesk_login,  :as => base.to_sym
+        get '/exit', :action => :zendesk_logout, :as => nil
       end
     end
   end
