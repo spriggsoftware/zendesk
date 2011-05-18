@@ -40,9 +40,20 @@ module Zendesk
       self.token, self.hostname, self.login, self.login_url =
         options.values_at(:token, :hostname, :login, :login_url)
 
-      if %w( token hostname login login_url ).any? {|conf| send(conf).blank?}
-        raise ConfigurationError, "Zendesk requires the API token, an hostname a proc to infer the user name "\
-                                  "and e-mail and the login route helper name" # TODO don't require all these things
+      unless self.token.present?
+        raise ConfigurationError, "API token is missing"
+      end
+
+      unless self.hostname.present?
+        raise ConfigurationError, "Support hostname is missing"
+      end
+
+      unless self.login.present?
+        raise ConfigurationError, "Login proc is missing"
+      end
+
+      unless self.login_url.present?
+        raise ConfigurationError, "Login URL named route is missing"
       end
 
       # Dropbox specific customizations, defaults in place
