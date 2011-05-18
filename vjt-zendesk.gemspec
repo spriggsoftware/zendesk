@@ -19,7 +19,11 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "lib/zendesk.rb",
-    "lib/zendesk/railtie.rb"
+    "lib/zendesk/controller.rb",
+    "lib/zendesk/helpers.rb",
+    "lib/zendesk/railtie.rb",
+    "lib/zendesk/routing.rb",
+    "lib/zendesk/version.rb"
   ]
   s.homepage = %q{http://github.com/vjt/zendesk}
   s.require_paths = ["lib"]
