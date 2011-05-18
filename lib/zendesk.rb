@@ -1,5 +1,5 @@
 require 'digest/md5'
-require 'zendesk/railtie' if defined? Rails
+require 'zendesk/railtie'
 
 # Zendesk remote authentication helper for Rails. Implements JS generation,
 # controller actions and route helpers. Have a look at the code, because it

@@ -13,14 +13,9 @@ and the necessary controller and routing code to implement
 Installation
 ------------
 
-Via RubyGems:
+In Gemfile
 
-    gem install vjt-zendesk
-
-Or via Rails Plugin:
-
-    rails plugin install git://github.com/vjt/zendesk.git
-
+    gem 'vjt-zendesk', :require => 'zendesk'
 
 Configuration
 -------------
@@ -40,7 +35,7 @@ defined it in the `SessionsController`: so, in your `sessions_controller.rb`:
 
     include Zendesk::Controller if Zendesk.enabled?
 
-Finally, in your config/environment.rb:
+Finally, in your config/application.rb:
 
     Zendesk.set(
       :token     => 'Your Zendesk token',
