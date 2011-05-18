@@ -1,12 +1,12 @@
 require 'rake'
 require 'rake/rdoctask'
 
-require 'lib/panmind/zendesk'
+require 'lib/zendesk'
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name             = 'panmind-zendesk'
+    gemspec.name             = 'vjt-zendesk'
 
     gemspec.summary          = 'Zendesk on Rails - Dropbox and Remote Authentication'
     gemspec.description      = 'The plugin implements the HTML generation code for the '   \
@@ -15,13 +15,13 @@ begin
 
     gemspec.authors          = ['Marcello Barnaba']
     gemspec.email            = 'vjt@openssl.it'
-    gemspec.homepage         = 'http://github.com/Panmind/zendesk'
+    gemspec.homepage         = 'http://github.com/vjt/zendesk'
 
     gemspec.files            = %w( README.md Rakefile rails/init.rb ) + Dir['lib/**/*']
     gemspec.extra_rdoc_files = %w( README.md )
     gemspec.has_rdoc         = true
 
-    gemspec.version          = Panmind::Zendesk::Version
+    gemspec.version          = Zendesk::Version
     gemspec.date             = '2010-11-23'
 
     gemspec.require_path     = 'lib'

@@ -15,11 +15,11 @@ Installation
 
 Via RubyGems:
 
-    gem install panmind-zendesk
+    gem install vjt-zendesk
 
 Or via Rails Plugin:
 
-    rails plugin install git://github.com/Panmind/zendesk.git
+    rails plugin install git://github.com/vjt/zendesk.git
 
 
 Configuration
@@ -38,11 +38,11 @@ method in the controller.
 You can define these methods in any of your controllers, in this example we
 defined it in the `SessionsController`: so, in your `sessions_controller.rb`:
 
-    include Panmind::Zendesk::Controller if Panmind::Zendesk.enabled?
+    include Zendesk::Controller if Zendesk.enabled?
 
 Finally, in your config/environment.rb:
 
-    Panmind::Zendesk.set(
+    Zendesk.set(
       :token     => 'Your Zendesk token',
       :hostname  => 'example.zendesk.com',
       :login     => proc { [current_user.name, current_user.email] },
@@ -61,7 +61,7 @@ The required options are:
    that must return an `Array` whose first element is the current user name and the second its email.
    This `Proc` is evaluated iff the `logged_in?` instance method of your controller returns true.
  * `:login_url` -- The name of the named route helper that generates the full URL of your login page.
-   We use `:ssl_login_url` thanks to our [SSL Helper](http://github.com/Panmind/ssl_helper) plugin.
+   We use `:ssl_login_url` thanks to our [SSL Helper](http://github.com/vjt/ssl_helper) plugin.
 
 The `:dropbox` option is for the [Zendesk dropbox](http://www.zendesk.com/blog/instant-support-access-with-drop-box)
 configuration, it should be an hash with symbolized keys and it is converted to
@@ -104,9 +104,9 @@ want to reduce HTTP requests to external services. While it's not the
 best practice in the world to cache said services assets, to speed up
 your application you may be forced to do it.
 
-We're doing it on [Panmind](http://panmind.org) - both to reduce the
-number of HTTP requests and because the lag with `assets0.zendesk.com`
-from Europe is quite high.
+[Panmind](http://panmind.com), where this project originated, is doing
+this, both to reduce the number of HTTP requests and because the lag with
+`assets0.zendesk.com` from Europe is quite high.
 
 To make a long story short, if you're including the Zendesk assets in
 your minified blobs, you can use just the `zendesk_dropbox_config` view
@@ -114,14 +114,11 @@ helper to generate the dropbox configuration, placing it before the
 inclusion of your JS blobs: this way the `zenbox_params` variable will
 be already defined when the JS is evaluated.
 
-If you're wondering how we're minifying and concatenating our JS and CSS
-assets, follow us on GitHub: we plan to release that code as well. :-)
-
 
 Compatibility
 -------------
 
-Tested with Rails 3.0.3 running under Ruby 1.9.2p0.
+Tested with Rails 3.0.x running under Ruby 1.9.2.
 
 
 TODO
