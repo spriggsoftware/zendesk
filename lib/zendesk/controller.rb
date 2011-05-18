@@ -1,8 +1,10 @@
 module Zendesk
 
   module Controller
-    def self.included(base)
-      base.before_filter :zendesk_handle_guests, :only => :zendesk_login
+    extend ActiveSupport::Concern
+
+    included do
+      before_filter :zendesk_handle_guests, :only => :zendesk_login
     end
 
     def zendesk_login
