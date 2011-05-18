@@ -45,8 +45,8 @@ module Zendesk
 
       # Dropbox specific customizations, defaults in place
       self.dropbox = (options[:dropbox] || {}).reverse_merge(
-        :tabID       => 'feedback',
-        :url         => Zendesk.hostname
+        :tabID => 'feedback',
+        :url   => Zendesk.hostname
       ).freeze
 
       # Path and name for css and asset required for zenbox 2.0
