@@ -22,7 +22,7 @@ Configuration
 
 In your `config/routes.rb`:
 
-    map.zendesk '/support', :controller => 'sessions'
+    zendesk :on => '/support', :controller => 'root'
 
 The `/support` path will then respond to the methods that generate the query
 string parameters required for Remote Authentication, while the `/support/exit`
