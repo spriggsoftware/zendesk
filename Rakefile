@@ -1,7 +1,9 @@
 require 'rake'
 require 'rake/rdoctask'
 
-require 'lib/zendesk/version'
+module Zendesk
+  Version = '1.2.0'
+end
 
 begin
   require 'jeweler'
@@ -22,7 +24,7 @@ begin
     gemspec.version          = Zendesk::Version
     gemspec.require_path     = 'lib'
 
-    gemspec.add_dependency('rails', '~> 3.0')
+    gemspec.add_dependency('rails', '~> 4.0')
   end
 rescue LoadError
   puts 'Jeweler not available. Install it with: gem install jeweler'
